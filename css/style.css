@@ -1,0 +1,682 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "roboto";
+}
+
+.container{
+	max-width: 1280px;
+	padding: 20px 100px;
+	margin: 0 auto;
+}
+
+.clear{
+	clear: both;
+}
+
+/*Header do meu site*/ 
+
+header{
+	background-image: url('../img/bg6.jpg');
+	min-height: 450px;
+	padding: 30px 0;
+	background-size: cover;
+	background-position: center;
+
+}
+
+.logo{
+	background-image: url('../img/logo.png');
+	background-size: 100% 100%;
+	float: left;
+	width: 350px;
+	height: 100px;
+}
+
+
+nav.desktop{
+	float: right;
+}
+
+nav.desktop ul{
+	list-style-type: none;
+}
+
+nav.desktop ul li{
+	display: inline-block;
+	margin-left: 40px;
+	
+}
+
+nav.desktop a{
+	color: white;
+	text-decoration: none;
+}
+
+nav .btnLogin-popup{
+	width: 130px;
+	height: 50px;
+	background: transparent;
+	border: 2px solid #fff;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1.1em;
+	color: #fff;
+	font-weight: 500;
+	margin-left: 40px;
+	transition: .5s;
+}
+
+nav .btnLogin-popup:hover{
+	background: #fff;
+	color: #162938;
+}
+
+.wrapper{
+	position: relative;
+	width: 400px;
+	height: 440px;
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, .5);
+	border-radius: 20px;
+	backdrop-filter: blur(20px);
+	box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	transform: scale(0);
+	transition: transform .5s ease, height .2s ease;
+
+}
+
+.wrapper.active-popup{
+	transform: scale(1);
+}
+
+.wrapper.active{
+	height: 520px;
+}
+
+.wrapper .form-box{
+	width: 100%;
+	padding: 40px;
+}
+
+.wrapper .form-box.login{
+	transition: transform .18s ease;
+	transform: translateX(0);
+	
+}
+
+.wrapper.active .form-box.login{
+	transition: none;
+	transform: translateX(-400px);
+}
+
+
+.wrapper .form-box.Regrister{
+	position: absolute;
+	transition: none;
+	transform: translateX(400px);
+}
+
+.wrapper.active .form-box.Regrister{
+	transition: none;
+	transform: translateX(0);
+}
+
+.wrapper .form-box.Regrister{
+	position: absolute;
+	transform: none;
+	transform: translateX(400px);
+}
+
+.wrapper .form-box.Regrister{
+	position: absolute;
+	transform: translateX(400px);
+}
+
+.wrapper .icon-close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45px;
+	height: 45px;
+	background: #162938;
+	font-size: 2em;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom-left-radius: 20px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.form-box h2{
+	font-size: 2em;
+	color: #fff;
+	text-align: center;
+}
+
+.input-box{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	border-bottom: 2px solid #fff;
+	margin: 30px 0;
+}
+
+.input-box label{
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	transform: translateY(-50%);
+	font-size: 1em;
+	color: #fff;
+	font-weight: 500;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+	top: -5px;
+}
+
+.input-box input{
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 1em;
+	color: #fff;
+	font-weight: 600;
+	padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+	position: absolute;
+	right: 8px;
+	font-size: 1.2em;
+	color: #fff;
+	line-height: 57px;
+}
+
+.remember-forgot{
+	font-size: .9em;
+	color: #fff;
+	font-weight: 500;
+	margin: -15px 0 15px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.remember-forgot label input{
+	accent-color: #fff;
+	margin-right: 3px;
+}
+
+.remember-forgot a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.remember-forgot a:hover{
+	text-decoration: underline;
+}
+
+.btn{
+	width: 100%;
+	height: 45px;
+	background: #162938;
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1em;
+	color: #fff;
+	font-weight: 500;
+}
+
+.login-register{
+	font-size: .9em;
+	color: #162938;
+	text-align: center;
+	font-weight: 500;
+	margin: 25px 0 10px;
+}
+
+.login-register p a{
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.login-register p a:hover{
+	text-decoration: underline;
+}
+
+nav.mobile{
+	display: none;
+	float: right;
+}
+
+nav.mobile ul{
+	position: absolute;
+	left: 0;
+	top: 30px;
+	width: 100%;
+	padding: 30px 0;
+	background: #31475e;
+	display: block;
+	text-align: center;
+}
+
+nav.mobile li{
+	padding: 10px 0;
+}
+
+nav.mobile .btnLogin-popup{
+	padding: 4px 10px;
+	display: inline-block;
+	text-align: center;
+}
+
+nav.mobile a{
+	display: block;
+	color: white;
+	text-decoration: none;
+}
+
+div.chamada-header{
+	padding: 110px 0;
+}
+
+div.chamada-header h2{
+	font-size: 42px;
+	color:white ;
+	max-width: 400;
+	font-weight: normal;
+}
+
+div.chamada-header p{
+	font-size: 20px;
+	color: white;
+	margin-top: 10px;
+	max-width: 600px;
+}
+
+div.chamada-header form{margin-top: 10px}
+
+div.chamada-header input[type=email]{
+	display: inline-block;
+	border-radius: 100px;
+	background: white;
+	width: 230px;
+	height: 35px;
+	padding-left: 10px;
+}
+
+div.chamada-header input[type=password]{
+	display: inline-block;
+	border-radius: 100px;
+	background: white;
+	width: 230px;
+	height: 35px;
+	padding-left: 10px;
+}
+
+div.chamada-header input[type=submit]:focus{outline: 0}
+
+div.chamada-header input[type=submit]{
+	width: 180px;
+	height: 40px;
+	border-radius: 100px;
+	background-color: #ff5f27;
+	color: white;
+	cursor: pointer;
+	border: 0;
+}
+
+section.descrição{
+	text-align: center;
+	padding: 30px 0;
+}
+
+section.descrição p{
+	display: inline-block;
+	max-width: 680px;
+	font-weight: lighter;
+	font-size: 22px;
+	font-style: italic;
+}
+
+section.descrição-senac{
+	padding: 50px 0;
+}
+
+section.descrição-senac > .container{
+	max-width: 900px;
+}
+
+.descrição-texto{
+	padding: 0 15px;
+	float: left;
+	width: 55%;
+}
+
+.descrição-texto h3{
+	color: #31475e;
+	font-size: 22px;
+	line-height: 32px;
+	font-weight: normal;
+}
+
+.descrição-texto p{
+	margin-top: 15px;
+	color: #6a7c92;
+	font-size: 15px;
+	line-height: 25px;
+}
+
+section.descrição-senac img{
+	width: 45%;
+	float: left;
+	max-width: 500px;
+
+}
+
+.servicos-descricao{
+	display: flex;
+}
+
+.half1{
+	width: 50%;
+	text-align: right;
+	padding:90px 0;
+	background: #242424;
+	color: white;
+}
+
+.half1-wraper{
+	padding-right: 20%;
+	text-align: left;
+	display: inline-block;
+}
+
+.half1-wraper h2{
+	font-weight: normal;
+	font-style: italic;
+	font-size: 32px;
+}
+
+.half1-wraper ul{
+	display: inline-block;
+	margin-top:20px;
+}
+
+.half1-wraper li{
+	margin-left: 15px;
+}
+
+.half1-wraper a{
+	margin-left: 40px;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.btn2{
+	text-align: center;
+	display: block;
+	line-height: 40px;
+	background-color:#ccc;
+	text-decoration: none;
+	border-bottom: 5px solid #ccc;
+	color: black;
+	font-size: 16px;
+	font-style: italic;
+	width: 150px;
+	margin-top: 15px;
+	border-radius: 5px;
+}
+
+.btn1{
+	text-align: center;
+	display: block;
+	line-height: 40px;
+	background-color:#ccc;
+	text-decoration: none;
+	border-bottom: 5px solid #ccc;
+	color: black;
+	font-size: 16px;
+	font-style: italic;
+	width: 150px;
+}
+
+
+.half2{
+	width: 50%;
+	padding:90px 100px;
+	background: #FFA07A;
+	color: white;
+}
+
+.half2 h2{
+	font-weight: normal;
+	font-style: italic;
+	font-size: 32px;
+}
+
+.half2 .depoimento-single{
+	margin-top:19px;
+}
+
+.depoimento-single p{
+	font-size: 22px;
+}
+
+.navigation{
+	float: left;
+	width: 100%;
+	max-width: 700px;
+	margin-top:30px;
+}
+
+.arrows{
+	float: left;
+}
+
+.navigation img{
+	cursor: pointer;
+	margin:0 20px;
+}
+
+.nome-depoimento{
+	float: right;
+	color: #252525;
+	font-size: 23px;
+}
+
+footer{
+	margin-top:20px;
+	padding:40px 2%;
+	background: #252525;
+}
+
+footer nav{
+	float: left;
+}
+
+footer nav ul{
+	list-style-type: none;
+}
+
+footer nav ul li{
+	float: left;
+	font-style: italic;
+	padding:0 35px;
+	font-size: 19px;
+}
+
+footer nav ul a{
+	color: white;
+	text-decoration: none;
+}
+
+footer p{
+	text-align: justify;
+	float: right;
+	color: white;
+	font-size: 19px;
+	font-style: italic;
+}
+
+section.sobre{
+	min-height: 90%;
+	padding:60px 2% 20px 2%;
+}
+
+section.sobre .container{
+	max-width: 840px;
+	margin-top:30px;
+}
+
+section.sobre .img-destaque-sobre{
+	background-image: url('../img/Connectflex.jpg');
+	min-height: 450px;
+	padding: 30px 0;
+	background-size: cover;
+	background-position: center;
+
+}
+
+section.sobre .descricao-autor{
+	margin-top:20px;
+}
+
+.descricao-autor h2{
+	font-size: 24px;
+}
+
+.descricao-autor p{
+	font-style: arial;
+	line-height: 28px;
+	font-size: 18px;
+	margin-top:10px;
+}
+
+.descricao-autor2{
+	margin-top:40px;
+}
+
+
+.img-small{
+	width: 30%;
+	padding-top:30%;
+	float: left;
+	background-image: url('../img/celular.jpg');
+	background-size: cover;
+}
+
+.descricao-autor2 p{
+	font-style: arial;
+	font-size: 18px;
+	float: left;
+	width: 70%;
+	line-height: 28px;
+	padding:15px;
+}
+
+.line-titulo {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.line-titulo h2{
+	position: relative;
+	background: white;
+	display: inline-block;
+	text-align: center;
+	font-size: 27px;
+	padding:0 20px;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+.ln1 {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 20px;
+    background: black;
+}
+
+
+
+@media screen and (max-width: 1024px){
+	.box-depoimento{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: 120%;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	
+	
+}
+	nav.desktop{display:none;}
+	nav.mobile{display: block;}
+}
+
+@media screen and (max-width:768px){
+	.descrição-texto{width: 100%; display: block; float: none;}
+	section.descrição-senac img{
+		width: 100%;
+		display: block;
+		margin:0 auto;
+		float: none;
+		margin-top: 10px;
+		max-width: 500px;
+ 	}
+
+	 footer nav{
+		display: none;
+	}
+
+	footer{
+		text-align: center;
+	}
+
+	footer p{
+		float: none;
+	}
+
+	.w50{
+		width: 100%;
+	}
+
+	.nome-depoimento{
+	float: right;
+	width: auto;
+	margin:0px 0px;
+	}
+
+	section.servicos-descricao{
+		flex-direction: column;
+	}
+
+
+	.half1,.half2{
+		padding:80px 4%;
+		width: 100%;
+	}
+}
